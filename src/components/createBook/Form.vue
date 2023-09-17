@@ -1,6 +1,5 @@
 <script setup>
 import { reactive } from "vue";
-
 // Obtiene los valores del formulario - metodo para la limpieza de datos
 const state = reactive({
   author: "",
@@ -39,6 +38,8 @@ const handleSubmit = () => {
   console.log(bookListLocalStorage);
   stateClean()
 };
+
+
 </script>
 
 

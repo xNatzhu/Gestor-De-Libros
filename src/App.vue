@@ -1,9 +1,4 @@
-<script setup>
-import CreateBook from './page/createBook/CreateBook.vue';
-</script>
 
 <template>
-    <CreateBook/>
+    <RouterView />
 </template>
-<style scoped>
-</style>
