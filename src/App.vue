@@ -1,9 +1,9 @@
 <script setup>
+import CreateBook from './page/createBook/CreateBook.vue';
 </script>
 
 <template>
-  <h1 class="text-[#1818]">Probando tailwind</h1>
+    <CreateBook/>
 </template>
-
 <style scoped>
 </style>
