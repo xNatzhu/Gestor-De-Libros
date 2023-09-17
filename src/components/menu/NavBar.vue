@@ -7,7 +7,7 @@ const toggleOpen = () => {
 };
 </script>
 <template>
-  <header class="bg-white border-2">
+  <header class="bg-white border-2 fixed w-[100%] z-10">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div
         class="flex h-16 items-center justify-between"
@@ -87,7 +87,7 @@ const toggleOpen = () => {
               </svg>
             </button>
             <button
-              class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 hidden"
+              class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 px-4 hidden"
               :class="{ 'active-menu block': open }"
               @click="toggleOpen"
             >
