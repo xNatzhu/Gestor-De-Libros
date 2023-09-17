@@ -1,8 +1,9 @@
 <script setup>
+import Search from '../../components/home/Search.vue';
 </script>
 
 <template>
-    <h1>Soy el home</h1>
+    <Search/>
 </template>
 
 

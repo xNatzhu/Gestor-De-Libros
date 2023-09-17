@@ -5,6 +5,7 @@ const open = ref(false);
 const toggleOpen = () => {
   open.value = !open.value;
 };
+
 </script>
 <template>
   <header class="bg-white border-2 fixed w-[100%] z-10">
