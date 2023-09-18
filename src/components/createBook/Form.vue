@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from "vue";
-// Obtiene los valores del formulario - metodo para la limpieza de datos
+
+// Obtiene los valores del formulario - método para la limpieza de datos
 const state = reactive({
   author: "",
   image: "",
@@ -8,23 +9,23 @@ const state = reactive({
   description: "",
 });
 
-const stateClean = ()=>{
-  state.author = ""
-  state.description = ""
-  state.image = ""
-  state.title = ""
-}
+const stateClean = () => {
+  state.author = "";
+  state.description = "";
+  state.image = "";
+  state.title = "";
+};
 
-// LocalStorage inicializacion - carga de estado
-let bookListLocalStorage = []; 
-
-const localStorageData = localStorage.getItem("books");
-if (localStorageData) {
-  bookListLocalStorage = JSON.parse(localStorageData);
-}
+// LocalStorage inicialización - carga de estado
+let bookListLocalStorage = JSON.parse(localStorage.getItem("books")) || [];
 
 const handleSubmit = () => {
-  // Agrega un nuevo libro al arreglo
+  // Verificar si bookListLocalStorage es un arreglo válido
+  if (!Array.isArray(bookListLocalStorage)) {
+    bookListLocalStorage = [];
+  }
+
+  // Agregar un nuevo libro al arreglo
   bookListLocalStorage.push({
     author: state.author,
     image: state.image,
@@ -33,14 +34,13 @@ const handleSubmit = () => {
   });
 
   // Guarda la lista actualizada en el localStorage
-  const savedBooksLocalStorage  = JSON.stringify(bookListLocalStorage);
-  localStorage.setItem("books", savedBooksLocalStorage );
+  const savedBooksLocalStorage = JSON.stringify(bookListLocalStorage);
+  localStorage.setItem("books", savedBooksLocalStorage);
   console.log(bookListLocalStorage);
-  stateClean()
+  stateClean();
 };
-
-
 </script>
+
 
 
 <template>
