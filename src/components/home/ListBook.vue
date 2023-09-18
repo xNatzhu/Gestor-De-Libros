@@ -4,12 +4,28 @@ import {inject } from 'vue';
 //inyect - props 
 const listBook = inject("listBook")
 
+// Método para agregar o eliminar vistas de libros
+const bookView = (book, index) => {
+  let localStorageDataView = JSON.parse(localStorage.getItem("view")) || [];
+
+  if (!localStorageDataView[index]) {
+
+    localStorageDataView[index] = book;
+    console.log("Guardando", localStorageDataView);
+  } else {
+    delete localStorageDataView[index];
+    console.log("Eliminando", localStorageDataView);
+  }
+  // Guardar los datos actualizados en el localStorage
+  localStorage.setItem("view", JSON.stringify(localStorageDataView));
+
+
+};
+
+//metodo de eliminacion de libros
 const bookRemove = (index)=>{
     listBook.value.splice(index, 1)
-    // Guarda la lista actualizada en el localStorage
-    const savedBooksLocalStorage  = JSON.stringify(listBook);
-    localStorage.setItem("books", savedBooksLocalStorage );
-    console.log(listBook);
+    localStorage.setItem("books", JSON.stringify(listBook) );
 }
 
 
@@ -53,19 +69,22 @@ console.log("probando si entro",listBook);
              {{ book.title }}
             </td>
             <td class="px-6 py-4 font-semibold text-orange-400">
-              <svg
+              <button @click.prevent="bookView(book, index)">
+                <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 fill="currentColor"
                 class="bi bi-eye-fill"
                 viewBox="0 0 16 16"
+                
               >
                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
                 <path
                   d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
                 />
               </svg>
+              </button>
             </td>
             <td class="px-6 py-4">
               <a
