@@ -9,7 +9,6 @@ const bookView = (book, index) => {
   let localStorageDataView = JSON.parse(localStorage.getItem("view")) || [];
 
   if (!localStorageDataView[index]) {
-
     localStorageDataView[index] = book;
     console.log("Guardando", localStorageDataView);
   } else {

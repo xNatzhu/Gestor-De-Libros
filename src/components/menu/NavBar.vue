@@ -12,7 +12,7 @@ const toggleOpen = () => {
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div
         class="flex h-16 items-center justify-between"
-        :class="{ 'open': open }"
+        :class="{ 'h-[100vh] open': open }"
       >
         <div
           class="md:flex md:items-center md:gap-12 logo-menu"
@@ -31,6 +31,7 @@ const toggleOpen = () => {
                 <router-link
                   class="text-gray-500 transition hover:text-gray-500/75"
                   to="/"
+                  @click="toggleOpen"
                 >
                   Inicio
                 </router-link>
@@ -40,6 +41,7 @@ const toggleOpen = () => {
                 <router-link
                   class="text-gray-500 transition hover:text-gray-500/75"
                   to="/createbook"
+                  @click="toggleOpen"
                 >
                   Creacion de libros
                 </router-link>
@@ -108,12 +110,8 @@ const toggleOpen = () => {
   color: #fb923c;
   font-weight: 500;
 }
-
-body{
-    overflow-y: hidden;
-}
 .open .open-menu-mobile{
-    display: block;
+        display: block;
         position: absolute;
         width: 100%;
         height: 100vh;
