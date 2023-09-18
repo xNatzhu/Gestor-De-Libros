@@ -8,14 +8,12 @@ const listBook = inject("listBook");
 const localStorageData = JSON.parse(localStorage.getItem("books"));
 const changeValue = ref("");
 
-const changeSearch = () => {
 
-  console.log(changeValue.value)
+const changeSearch = () => {
   const filteredData = localStorageData.filter(book => {
     return book.title.toLowerCase().includes(changeValue.value);
   });
   listBook.value = filteredData;
-  console.log("probando la data master", filteredData);
 }
 </script>
 

@@ -4,10 +4,10 @@ import ListBook from '../../components/home/ListBook.vue';
 import {provide, ref} from "vue"
 
 const localStorageData = JSON.parse(localStorage.getItem("books"));
-const dataBook = ref(localStorageData || {});
-const storedData = ref(dataBook);
+console.log("prueba",localStorageData);
 
-provide("dataBook", dataBook)
+const storedData = ref(localStorageData || {});
+
 provide("listBook",storedData)
 </script>
 

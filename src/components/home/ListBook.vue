@@ -1,32 +1,44 @@
 <script setup>
-import {inject } from 'vue';
+import { inject, ref } from "vue";
 
-//inyect - props 
-const listBook = inject("listBook")
+//inyect - props
+const listBook = inject("listBook");
 
-// Método para agregar o eliminar vistas de libros
-const bookView = (book, index) => {
-  let localStorageDataView = JSON.parse(localStorage.getItem("view")) || [];
-  
-  if (!localStorageDataView[index]) {
-    localStorageDataView[index] = book;
-  } else {
-    delete localStorageDataView[index];
-  }
-  localStorage.setItem("view", JSON.stringify(localStorageDataView));
+let localStorageDataView = JSON.parse(localStorage.getItem("view")) || [];
+let lisFavorite = ref(localStorageDataView || {});
 
-};
+console.log(localStorageDataView);
 
-
-//metodo de eliminacion de libros
-const bookRemove = (index)=>{
-    listBook.value.splice(index, 1)
-    localStorage.setItem("books", JSON.stringify(listBook) );
+if (!Array.isArray(localStorageDataView)) {
+  localStorageDataView = [];
 }
 
+const bookView = (book, index) => {
+  console.log(book);
+  const elementoBuscado = localStorageDataView.some((item) => item === book);
 
-console.log("probando si entro",listBook);
+  console.log(elementoBuscado);
+  if (!elementoBuscado) {
+    localStorageDataView.push(book);
+    localStorage.setItem("view", JSON.stringify(localStorageDataView));
+  } else {;
+    localStorageDataView.splice(index, 1);
+    localStorage.setItem("view", JSON.stringify(localStorageDataView));
+  }
 
+  console.log(lisFavorite);
+};
+
+//metodo de eliminacion de libros
+const bookRemove = (index) => {
+  // Get the books from local storage
+  const localStorageData = JSON.parse(localStorage.getItem("books"));
+  // Remove the book at the specified index
+  localStorageData.splice(index, 1);
+  // Save the books back to local storage
+  localStorage.setItem("books", JSON.stringify(localStorageData));
+  listBook.value = localStorageData
+};
 </script>
 
 <template>
@@ -53,33 +65,24 @@ console.log("probando si entro",listBook);
         <!--Contenido-->
 
         <tbody>
-          <tr class="bg-white border-b hover:bg-gray-200" v-for="(book, index) in listBook" :key="index">
+          <tr
+            class="bg-white border-b hover:bg-gray-200"
+            v-for="(book, index) in listBook"
+            :key="index"
+          >
             <td class="w-32 p-4">
-              <img
-                :src="book.image"
-                alt= ""
-              />
+              <img :src="book.image" alt="" />
             </td>
-            <td class="px-6 py-4 font-semibold text-gray-500">{{book.author }}</td>
             <td class="px-6 py-4 font-semibold text-gray-500">
-             {{ book.title }}
+              {{ book.author }}
+            </td>
+            <td class="px-6 py-4 font-semibold text-gray-500">
+              {{ book.title }}
             </td>
             <td class="px-6 py-4 font-semibold text-orange-400">
               <button @click.prevent="bookView(book, index)">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-eye-fill"
-                viewBox="0 0 16 16"
-                
-              >
-                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                <path
-                  d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
-                />
-              </svg>
+                <p>No mostrar</p>
+                Mostrar view
               </button>
             </td>
             <td class="px-6 py-4">
