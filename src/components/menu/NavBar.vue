@@ -2,9 +2,11 @@
 import { ref } from "vue";
 const open = ref(false);
 
-const toggleOpen = () => {
-  open.value = !open.value;
-};
+const toggleOpen = (state) => {
+    open.value = !open.value;
+    open.value = state;
+  }
+
 
 </script>
 <template>
@@ -31,7 +33,7 @@ const toggleOpen = () => {
                 <router-link
                   class="text-gray-500 transition hover:text-gray-500/75"
                   to="/"
-                  @click="toggleOpen"
+                  @click="toggleOpen(false)"
                 >
                   Inicio
                 </router-link>
@@ -41,7 +43,7 @@ const toggleOpen = () => {
                 <router-link
                   class="text-gray-500 transition hover:text-gray-500/75"
                   to="/createbook"
-                  @click="toggleOpen"
+                  @click="toggleOpen(false)"
                 >
                   Creacion de libros
                 </router-link>

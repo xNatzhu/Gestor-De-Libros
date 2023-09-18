@@ -1,4 +1,24 @@
-<script setup></script>
+<script setup>
+import { inject } from 'vue';
+import { ref } from 'vue';
+
+// props
+const listBook = inject("listBook");
+
+const localStorageData = JSON.parse(localStorage.getItem("books"));
+const changeValue = ref("");
+
+const changeSearch = () => {
+
+  console.log(changeValue.value)
+  const filteredData = localStorageData.filter(book => {
+    return book.title.toLowerCase().includes(changeValue.value);
+  });
+  listBook.value = filteredData;
+  console.log("probando la data master", filteredData);
+}
+</script>
+
 
 <template>
   <section class="heroe-search-background">
@@ -26,6 +46,8 @@
     placeholder="Ingrese el nombre del libro..."
     class="w-full px-3 py-2.5 text-sm rounded-md  border-2  border-gray-200 shadow-sm focus:outline-none focus:ring-0 focus-within:border-orange-400 focus-within:ring-1 focus-within:ring-orange-400 "
     required
+    v-model="changeValue"
+    @input="changeSearch"
   />
 </label>
 

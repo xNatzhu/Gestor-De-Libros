@@ -7,19 +7,16 @@ const listBook = inject("listBook")
 // Método para agregar o eliminar vistas de libros
 const bookView = (book, index) => {
   let localStorageDataView = JSON.parse(localStorage.getItem("view")) || [];
-
+  
   if (!localStorageDataView[index]) {
     localStorageDataView[index] = book;
-    console.log("Guardando", localStorageDataView);
   } else {
     delete localStorageDataView[index];
-    console.log("Eliminando", localStorageDataView);
   }
-  // Guardar los datos actualizados en el localStorage
   localStorage.setItem("view", JSON.stringify(localStorageDataView));
 
-
 };
+
 
 //metodo de eliminacion de libros
 const bookRemove = (index)=>{
