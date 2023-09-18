@@ -69,7 +69,7 @@ console.log("probando si entro",listBook);
             </td>
             <td class="px-6 py-4">
               <a
-                @click="bookRemove(index)"
+                @click.prevent="bookRemove(index)"
                 href="#"
                 class="font-medium text-red-600 dark:text-red-500 hover:underline"
                 >Remove</a

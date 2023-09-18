@@ -16,11 +16,13 @@ const stateClean = () => {
   state.title = "";
 };
 
-// LocalStorage inicialización - carga de estado
-let bookListLocalStorage = JSON.parse(localStorage.getItem("books")) || [];
 
 const handleSubmit = () => {
-  // Verificar si bookListLocalStorage es un arreglo válido
+  
+  // LocalStorage inicialización - carga de estado
+  let bookListLocalStorage = JSON.parse(localStorage.getItem("books"));
+
+  // Verificar si es un arreglo válido
   if (!Array.isArray(bookListLocalStorage)) {
     bookListLocalStorage = [];
   }
