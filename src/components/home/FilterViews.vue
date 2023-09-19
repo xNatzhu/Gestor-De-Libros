@@ -1,29 +1,40 @@
 <script setup>
-import { inject, ref } from "vue";
+import { inject, ref, watch } from "vue";
 
 const listBook = inject("listBook");
-const localStorageData = JSON.parse(localStorage.getItem("books"));
-
-const selectedButton = ref("viewBook");
+const selectedButton = ref("");
 
 const viewBook = () => {
+  const localStorageData = JSON.parse(localStorage.getItem("books"));
   const filterBook = localStorageData.filter((book) => book.view === true);
   listBook.value = filterBook;
   selectedButton.value = "viewBook";
+  console.log("ViewBook",filterBook);
+  console.log(listBook);
+
 };
 
 const unSeenBook = () => {
+  const localStorageData = JSON.parse(localStorage.getItem("books"));
   const filterBook = localStorageData.filter((book) => book.view === false);
   listBook.value = filterBook;
   selectedButton.value = "unSeenBook";
+  console.log("no view",filterBook);
+  console.log(listBook);;
 };
 
 const viewBookAll = () => {
-  const filterBook = localStorageData;
-  listBook.value = filterBook;
+  const localStorageData = JSON.parse(localStorage.getItem("books"));
+  listBook.value = localStorageData;
   selectedButton.value = "viewBookAll";
+  console.log("Todos",filterBook);
+  console.log(listBook);
 };
+
+console.log("probando",listBook);
+
 </script>
+
 
 <template>
   <div
