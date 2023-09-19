@@ -16,9 +16,7 @@ const stateClean = () => {
   state.title = "";
 };
 
-
 const handleSubmit = () => {
-  
   // LocalStorage inicialización - carga de estado
   let bookListLocalStorage = JSON.parse(localStorage.getItem("books"));
 
@@ -27,12 +25,17 @@ const handleSubmit = () => {
     bookListLocalStorage = [];
   }
 
-  // Agregar un nuevo libro al arreglo
+  // Obtener la longitud del localStorage
+  const bookListLength = bookListLocalStorage.length;
+
+  // Añadir un nuevo libro al arreglo con un ID único
   bookListLocalStorage.push({
     author: state.author,
     image: state.image,
     title: state.title,
     description: state.description,
+    id: bookListLength + 1,
+    view:false,
   });
 
   // Guarda la lista actualizada en el localStorage
