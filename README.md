@@ -1,29 +1,43 @@
-# gestor-de-libros
+# Gestor de Libros
 
-This template should help get you started developing with Vue 3 in Vite.
+## Descripción 💫
 
-## Recommended IDE Setup
+El Gestor de Libros es una aplicación desarrollada en Vue 3 con Vite que te permite gestionar y visualizar tu colección de libros. Con esta aplicación, puedes almacenar información sobre tus libros, marcar si los has leído o no, y eliminarlos de tu lista. Además, podrás buscar tus libros y aplicar filtros para encontrar rápidamente los que deseas.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Instalación  🔧
 
-## Customize configuration
+Para instalar la aplicación, sigue estos pasos:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clona este repositorio en tu máquina local:
 
-## Project Setup
+```
+git clone https://github.com/xNatzhu/Gestor-De-Libros
+```
 
-```sh
+2. Acceder al directorio del proyecto:
+```
+cd Gestor-De-Libros
+```
+3. Luego proceda a instalar las dependencias:
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+4. Una vez instalada las dependencia proceda encender el servidor
+```
 npm run dev
 ```
+## Tecnologías utilizadas 🔨
 
-### Compile and Minify for Production
+ Vue 3: El framework de JavaScript utilizado para construir la aplicación.
+- Composition API de Vue: Para la gestión de estado y la lógica de la aplicación.
+- Vue Router: Para la navegación entre páginas de la aplicación.
+- Tailwind CSS: Para el diseño y la apariencia de la interfaz de usuario.
 
-```sh
-npm run build
+## Autor  ✒️
+- [@XNatzhu - Agustin Saravia]
+
+## Licencia  📄
+```
+ISC License
 ```
