@@ -29,7 +29,7 @@ npm run dev
 ```
 ## Tecnologías utilizadas 🔨
 
- Vue 3: El framework de JavaScript utilizado para construir la aplicación.
+- Vue 3: El framework de JavaScript utilizado para construir la aplicación.
 - Composition API de Vue: Para la gestión de estado y la lógica de la aplicación.
 - Vue Router: Para la navegación entre páginas de la aplicación.
 - Tailwind CSS: Para el diseño y la apariencia de la interfaz de usuario.
