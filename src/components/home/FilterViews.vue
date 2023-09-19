@@ -26,13 +26,13 @@ const viewBookAll = () => {
 </script>
 
 <template>
-    <div class="flex justify-center align-middle pt-[20px] pb-[20px]">
+    <div class="flex flex-col md:flex-row justify-center align-middle pt-[20px] pb-[20px]">
         <div class="border-b border-orange-400">
-            <nav class="-mb-px flex gap-6" aria-label="Tabs">
+            <nav class="-mb-px flex flex-wrap gap-6" aria-label="Tabs">
                 <button
                     @click="viewBook"
                     :class="{ 'selected-button': selectedButton === 'viewBook' }"
-                    class="inline-flex shrink-0 items-center gap-2 border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500  hover:text-gray-700 flex-wrap"
+                    class="inline-flex items-center gap-2 border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                         <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
@@ -44,7 +44,7 @@ const viewBookAll = () => {
                 <button
                     @click="unSeenBook"
                     :class="{ 'selected-button': selectedButton === 'unSeenBook' }"
-                    class="inline-flex shrink-0 items-center gap-2 border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500  hover:text-gray-700 flex-wrap"
+                    class="inline-flex items-center gap-2 border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const viewBookAll = () => {
                 <button
                     @click="viewBookAll"
                     :class="{ 'selected-button': selectedButton === 'viewBookAll' }"
-                    class="inline-flex shrink-0 items-center gap-2 border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500  hover:text-gray-700 flex-wrap"
+                    class="inline-flex items-center gap-2 border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
