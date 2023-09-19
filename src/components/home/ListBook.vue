@@ -27,6 +27,10 @@ const bookView = (book, index) => {
       Explora nuestra increíble colección de libros y encuentra tus próximas
       aventuras literarias.
     </p>
+
+    
+
+
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-[30px]">
       <table class="w-full text-sm text-center text-gray-500">
         <thead class="text-xs text-white uppercase bg-orange-400">

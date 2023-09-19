@@ -47,16 +47,6 @@ const toggleOpen = (state) => {
                   Creacion de libros
                 </router-link>
               </li>
-
-              <li>
-                <router-link
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  to="/viewbook"
-                  @click="toggleOpen(false)"
-                >
-                  Libros leidos
-                </router-link>
-              </li>
             </ul>
           </nav>
         </div>
@@ -65,9 +55,10 @@ const toggleOpen = (state) => {
           <div class="sm:flex sm:gap-4 dark-mode">
             <a
               class="rounded-md bg-orange-400 px-5 py-2.5 text-sm font-medium text-white shadow"
-              href="/"
+              href="https://www.linkedin.com/in/agustin-saravia/"
+              target="_blank"
             >
-              Dark mode
+              Contacto
             </a>
           </div>
           <div class="block">
