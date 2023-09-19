@@ -35,19 +35,16 @@ const validateTitle = () => {
 };
 
 const handleSubmit = () => {
-  
-  // Valida los datos
   validateAuthor();
   validateTitle();
 
  // Verifica si hay errores
  if (Object.values(state.errors).some(error => error !== null)) {
-    // Hay errores de validación, no continúes con el envío de datos
     return;
   }
 
 
-  // LocalStorage inicialización - carga de estado
+  // LocalStorage inicialización
   let bookListLocalStorage = JSON.parse(localStorage.getItem("books"));
 
   // Verificar si es un arreglo válido
@@ -77,7 +74,7 @@ const handleSubmit = () => {
 
 <template>
   <div
-    class="w-full px-4 py-20 mx-auto bg-white xl:py-32 md:w-3/5 lg:w-4/5 xl:w-3/5 md:px-[50px]"
+    class="w-full px-4 py-2 pt-[120px] mx-auto bg-white xl:py-32 md:w-3/5 lg:w-4/5 xl:w-3/5 md:px-[50px]"
   >
     <h1
       class="mb-4 -mt-3 text-2xl font-extrabold leading-snug tracking-tight text-gray-600 md:text-4xl text-center"
