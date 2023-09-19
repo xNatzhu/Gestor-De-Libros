@@ -22,7 +22,7 @@ const toggleOpen = (state) => {
           <a
             class="block text-orange-400 text-uppercase font-bold text-[20px]"
           >
-            <h5>Texas</h5>
+            <h5>Taxes</h5>
           </a>
         </div>
         <div class="md:block" :class="{ block: open, hidden: !open }">
